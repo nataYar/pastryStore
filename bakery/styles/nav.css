@@ -1,0 +1,38 @@
+
+/*
+
+pastel pink  
+background-color: #FFD1DC; 
+
+bubblegum 
+background-color: #FFC1CC; 
+
+blush 
+background-color: #DE5D85;
+
+*/
+#nav {
+    background-color: #FFD1DC !important;
+}
+#nav-content_container{
+     display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+#nav div:first-child{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#nav-btn{
+    color: #fff;
+    background-color: #DE5D85;
+    align-self: flex-end !important;
+}
+#navbarSupportedContent{ 
+    flex-grow: 0;
+}
+
+
