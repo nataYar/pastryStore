@@ -1,6 +1,5 @@
 
 /*
-
 pastel pink  
 background-color: #FFD1DC; 
 
@@ -9,30 +8,174 @@ background-color: #FFC1CC;
 
 blush 
 background-color: #DE5D85;
-
 */
-#nav {
-    background-color: #FFD1DC !important;
-}
-#nav-content_container{
-     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-}
-#nav div:first-child{
+
+.nav {
+    height: 70px;
+    width: 100%;
+    background-color: rgb(248, 244, 236);
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    width: 100%;
-}
-
-#nav-btn{
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    position:fixed;
+    z-index: 100;
+    color: rgb(60, 40, 30);
+  }
+  
+  .nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
     color: #fff;
-    background-color: #DE5D85;
-    align-self: flex-end !important;
-}
-#navbarSupportedContent{ 
-    flex-grow: 0;
+    padding: 10px 10px 10px 10px;
+  }
+  
+  #nav-logo img { 
+    margin: 0 20px;
+    height: 70px;
+  }
+
+  .nav-name {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Initially transparent */
+    transition: opacity 0.5s ease; /* Smooth transition for opacity */
+  }
+
+  /* Optional: If you want it to become fixed after scrolling, add this */
+  .nav-name.scrolled {
+    opacity: 1; /* Make it fully visible after scrolling */
+  }
+
+  .nav-name h1 { 
+    font-size: 24px;
+  }
+
+  .nav-name h1, 
+  .nav-name p{ 
+    color: var( --font-deep-burgundy);
+  }
+
+  .nav-name p{ 
+    font-size: 14px;
+  }
+
+  .nav > .nav-btn {
+    display: none;
+  }
+  .nav > .nav-links a{
+    margin-right: 5px;
+  }
+
+  .nav > .nav-links {
+    display: inline;
+    margin-right: 10px;
+
+    font-size: 18px;
+    height: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: "Josefin Slab", serif;
+  }
+ 
+  /* Button styling */
+#nav-btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-font-color);
+  border: 2px solid var(--btn-border);
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-family: "Josefin Slab", serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
+/* Hover effect */
+#nav-btn:hover {
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-font-color);
+  transform: scale(1.05); /* Slight zoom on hover */
+}
 
+/* Optional focus state for accessibility */
+#nav-btn:focus {
+  outline: 3px solid var(--btn-border);
+  outline-offset: 2px;
+}
+
+  .nav > .nav-links > a {
+    padding: 10px; 
+    text-decoration: none;
+    color: #1e1e1e;
+    /* height: 100%;  */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; 
+    transition: color .5s ease, background-color .5s ease;
+  }
+  
+  .nav > .nav-links > a:hover {
+    color: rgb(100, 70, 60); /* Lighter chocolate */
+    background-color: rgb(230, 220, 210); 
+  }
+  
+  .nav > #nav-check {
+    display: none;
+  }
+  
+  @media (max-width:600px) {
+    .nav-name { 
+      margin: 0 20px;
+    }
+
+    .nav > .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+    .nav > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 13px;
+    }
+    .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+      /* background-color: rgba(0, 0, 0, 0.3); */
+    }
+    .nav > .nav-btn > label > span {
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid #eee;
+    }
+    .nav > .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: #541f30;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0px;
+    }
+    .nav > .nav-links > a {
+      display: block;
+      width: 100%;
+    }
+    .nav > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+    }
+    .nav > #nav-check:checked ~ .nav-links {
+      height: 150px;
+      overflow-y: auto;
+    }
+  }

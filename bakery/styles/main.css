@@ -1,81 +1,245 @@
+:root {
+    /* Background color */
+    --background-light-beige: rgb(248, 244, 236);
+    
+    /* Font colors */
+    --font-dark-chocolate: rgb(60, 40, 30);
+    --font-deep-burgundy: rgb(128, 0, 32);
+    --font-warm-gold: rgb(212, 175, 55);
+    --font-french-blue: rgb(49, 140, 231);
+    --font-muted-sage: rgb(143, 188, 143);
+    --btn-border: rgb(180, 150, 120); /* Complementary border color */
+
+     /* Regular Font Properties */
+    --font-family-regular: "Josefin Slab", serif;
+    --font-weight-regular: 400;
+    --font-style-regular: normal;
+
+    /* Regular Font 2 Properties */
+    --font-family-regular2: "Merriweather", serif;
+    --font-weight-regular2: 400;
+    --font-weight-regular2-light: 300;
+    --font-style-regular2: normal;
+  }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  
+}
+
+  /* FONTS */
+  .parisienne-regular {
+    font-family: "Parisienne", cursive;
+    font-weight: 400;
+    font-style: normal;
+   }
+   
+  .regular-font {
+    font-family: var(--font-family-regular);
+    font-weight: var(--font-weight-regular);
+    font-style: var(--font-style-regular);
+  
+  }
+  
+  .regular-font2 {
+    font-family: var(--font-family-regular2);
+    font-weight: var(--font-weight-regular2);
+    font-style: var(--font-style-regular2);
+  }
+
+  .regular-font2-light {
+    font-family: var(--font-family-regular2);
+    font-weight: var(--font-weight-regular2-light);
+    font-style: var(--font-style-regular2);
+  }
+
+  /* Example usage */
+  body {
+    background-color: var(--background-light-beige);
+    color: var(--font-dark-chocolate);
+    position: relative; 
+  }
+
+  h1 {
+    color: var(--font-deep-burgundy);
+  }
+  
+  a {
+    color: var(--font-french-blue);
+  }
+
+
 #section_1 {
     height: 100vh;
+    background-color: --background-light-beige;
     width: 100vw;
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
-    padding: 5% 10%;
-    background-color: rgb(255, 246, 246);
 }
 
 #section_1 .container {
-    width:100%;
+    margin-top: 70px;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
-    /* bubblegum */
-    /* background-color: #FFC1CC;  */
+    position: relative; 
 }
 
-#section_1 .container h3{
-width: 40%;
-   margin-bottom: 10%;
-   color: #A94064;
-}
-
-#section_1 .container div{
+#section_1 .container div:first-child {
     width: 100%;
-    height: 50vh;
-    background-image: url('../assets/cake_hor.jpg');
+    height: 100%;
+    background-image: url('../assets/hor_cake_1_rose.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-color: aquamarine;
+}
+
+.overlay {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(248, 244, 236, 0.5); */
+    background: radial-gradient(circle, rgba(255, 236, 210, 0.7) 0%, rgba(255, 236, 210, 0.8) 70%, rgba(255, 236, 210, 0.7) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#section_1 .container .text {
+    position: absolute;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    top: 50%; 
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#section_1 .container .text h1 {
+    font-size: 4rem;
+    text-align: center;
+    color: var(--font-deep-burgundy);
+}
+
+#section_1 .container .text  p {
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+
+#section_1 .container .text h3 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 50px;
+    color: var(--font-dark-chocolate);
+    font-weight: 600;
 }
 
 #section_2 {
     height: auto;
     width: 100vw;
-    padding: 5% 10%;
-    background-color: rgb(255, 246, 246);
+    padding: 100px 5%;
 }
-
-#section_2 h2{
-    width: 40%;
-    margin-bottom: 10%;
-    color: #A94064;
-    font-size: 30px;
-    }
 
 .services_all{  
     height: fit-content;
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-between;
     gap: 30px;
-    /* align-items: flex-start; */
-    /* background-color: rgb(148, 31, 31); */
-}
-.services_div h4 {
-    margin-top: 20px;
 }
 
-.services_div p {
-    margin-top: 15px;
+.services_div {
+    order: 0;
 }
+
+.services_div h2 {
+    font-size: 27px;
+    margin-top: 25px;
+    color: var(--font-deep-burgundy);
+}
+.services_div p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+.services_div .services-explanation {
+    background-color: var(--font-muted-sage);
+    width: 100%;
+    height: 35vh;
+ }
+
+ .services-explanation {position: relative;}
+ 
+ .services-explanation .text { 
+    position: absolute;
+    z-index: 3;
+    transform: translateY(-50%);
+    top: 50%; 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 15px;
+    color: white ;
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+.services-explanation .text p{ 
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.services-explanation .text button{
+    background-color: var(--btn-bg);
+    color: var(--btn-font-color);
+    border: 2px solid var(--btn-border);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 25px;
+    font-size: 18px;
+    font-family: "Josefin Slab", serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Hover effect */
+  .services-explanation .text button:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-font-color);
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  /* Optional focus state for accessibility */
+  .services-explanation .text button:focus {
+    outline: 3px solid var(--btn-border);
+    outline-offset: 2px;
+  }
 
 
 .services_div .coulis{
+    margin-top: 30px;
     width: 100%;
     height: 35vh;
     background-repeat: no-repeat;
     background-position-y: 80%;
     background-size: cover;
-    background-image: url('../assets/coulis.jpg');
+    background-image: url('../assets/coulis_vert2.jpg');
 }
 
 .services_div .pastry{
+    margin-top: 30px;
     width: 100%;
     height: 35vh;
     background-repeat: no-repeat;
@@ -84,8 +248,30 @@ width: 40%;
     background-image: url('../assets/cake_vert.jpg');
 }
 
+.services_div .pastry-ul {
+    margin-top: 10px;
+    font-size: 20px;
+    list-style-position: inside;
+    padding-left: 0; 
+}
+
+#section_3 {
+    height: auto;
+    width: 100vw;
+    padding: 0px 5%;
+    padding-bottom: 100px;
+}
+
+#section_3 > h2:first-of-type{
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 30px;
+    color: var(--font-muted-sage);
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) { 
+    
     .services_all{  
         display: flex;
         flex-flow: row nowrap;
@@ -94,22 +280,62 @@ width: 40%;
         width: 100%;
     }
 
+    .services_div:first-child {
+        order: 2;
+    }
+    .services_div:nth-child(2) {
+        order: 1; /* Second element moves to the first position */
+      }
+      
+      .services_div:nth-child(3) {
+        order: 3; /* Third element stays at the end */
+      }
+
     .services_div .coulis{
+        margin-top: 0;
         height: 55vh;
         background-repeat: no-repeat;
+        background-size: 200%;
         background-position-y: 80%;
         background-size: cover;
         background-image: url('../assets/coulis_vert2.jpg');
     }
-    
+    .services_div .services-explanation {
+        width: 100%;
+        height: 100%;
+     }
+
     .services_div .pastry{
+        margin-top: 0;
         height: 55vh;
         background-repeat: no-repeat;
         background-position-y: 40%;
         background-size: cover;
         background-image: url('../assets/cake_vert.jpg');
     }
-}
+
+    #section_1 .container .text h1 {
+        font-size: 5rem;
+        color: var(--font-deep-burgundy);
+    }
+
+
+    #section_2 {
+        height: auto;
+        width: 100vw;
+        padding: 200px 5%;
+    }
+
+    #section_3 > h2:first-of-type{
+        margin-bottom: 40px;
+    }
+
+    /* #section_2 {
+        height: auto;
+        width: 100vw;
+        padding: 0px 5%;
+        padding-bottom: 100px;
+} */
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) { 
