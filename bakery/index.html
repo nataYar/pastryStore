@@ -35,6 +35,7 @@
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("menu").innerHTML = data;
+          initializeGallery(); 
         })
         .catch((error) => console.error("Error loading menu:", error));
 
@@ -48,10 +49,38 @@
           navName.classList.remove("scrolled");
         }
       });
+
+    function initializeGallery() {
+      const galleries = document.querySelectorAll('.menu-item-gallery');
+      console.log("Gallery initialization script loaded"); // Confirm the script runs
+
+      galleries.forEach(gallery => {
+        const wrapper = gallery.querySelector('.image-wrapper');
+        const images = wrapper.querySelectorAll('img');
+        let index = 0;
+
+        const updateGallery = () => {
+          wrapper.style.transform = `translateX(-${index * 100}%)`;
+        };
+
+        gallery.querySelector('.prev-btn').addEventListener('click', () => {
+          console.log("Previous button clicked");
+          index = (index - 1 + images.length) % images.length;
+          updateGallery();
+        });
+
+        gallery.querySelector('.next-btn').addEventListener('click', () => {
+          console.log("Next button clicked");
+          index = (index + 1) % images.length;
+          updateGallery();
+        });
+      });
+    }
+
     </script>
     <section id="section_1">
       <div class="container">
-        <!-- bg image -->
+        <!-- bg image below -->
         <div></div>
         <div class="overlay"></div>
 
@@ -61,6 +90,12 @@
           <h3 class="regular-font">
             Enjoy a slice of Parisian paradise with our divine desserts.
           </h3>
+          <div class="order-placement">
+            <h3 class="regular-font">To place an Order call:</h3>
+            <button type="button">
+              <a href="tel:+16616074244" class="order-placement_text">+1 (661) 607-4244</a>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -71,7 +106,7 @@
           <div class="services-explanation">
             <div class="text">
               <p class="regular-font">Handcrafted Desserts & Pastries</p>
-              <button type="button">Order online</button>
+              <!-- <button type="button">Order online</button> -->
             </div>
           </div>
         </div>
@@ -105,6 +140,20 @@
       <h2>Our Menu</h2>
       <div id="menu"></div>
     </section>
-
+    
+    
+    <section class="order-section">
+        <h3>Place an Order</h3>
+        <p>If you're ready to indulge in our delightful desserts, call us to place an order!</p>
+        <button id="nav-btn" type="button">
+          <a href="tel:+16616074244" class="phone-number">+1 (661) 607-4244</a>
+        </button>
+    </section>
   </body>
+
+  <footer>
+    <div class="footer-content">
+      <p>Located in Santa Clarita, CA</p>
+    </div>
+  </footer>
 </html>

@@ -1,59 +1,117 @@
 .menu {
-    display: grid;
-    gap: 20px;
-  }
+  display: grid;
+  gap: 20px;
+}
 
+.menu-item {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item > img {
+  width: 100%;
+  height: auto;
+}
+
+.menu-item-content {
+  padding: 10px 15px;
+}
+
+.menu-item-title {
+  font-size: 1.2em;
+  margin: 0;
+  color: #333;
+}
+
+.menu-item-price {
+  font-weight: bold;
+  color: #8b4513;
+  margin: 5px 0;
+}
+
+.menu-item-desc {
+  margin-top: 15px;
+  color: #555;
+}
+
+/* GALLERY */
+.menu-item-gallery {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-color: aqua;
+}
+
+.image-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.image-wrapper img {
+  min-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.gallery-btn {
+  position: absolute;
+  bottom: 0%;
+  background: rgba(219, 219, 219, 0.5);
+  color: white;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.prev-btn {
+  left: 0px;
+}
+
+.next-btn {
+  right: 0px;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .menu-item {
-    background: #fff;
-    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
-  .menu-item img {
-    width: 100%;
-    height: auto;
+  .menu-item > img {
+    width: 65%;
+    min-height: 100%;
     object-fit: cover;
   }
 
   .menu-item-content {
-    padding: 10px 15px;
+    width: 35%;
   }
 
-  .menu-item-title {
-    font-size: 1.2em;
-    color: #333;
+  .menu-item-gallery {
+    width: 65%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .menu-item-price {
-    font-weight: bold;
-    color: #8b4513;
-    margin: 10px 0;
+  .image-wrapper{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
-
-  .menu-item-desc {
-    color: #555;
+  .image-wrapper img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
   }
-
-  /* Larger screens: Use grid layout for menu items */
-  @media (min-width: 768px) {
-    .menu {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .menu-item {
-      display: flex;
-      align-items: center;
-    }
-
-    .menu-item img {
-      width: 150px;
-      height: auto;
-      min-height: 100%;
-      object-fit: cover;
-    }
-
-    .menu-item-content {
-      padding: 20px;
-    }
-  }
+}

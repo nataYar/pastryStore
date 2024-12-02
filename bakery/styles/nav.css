@@ -88,7 +88,7 @@ background-color: #DE5D85;
   /* Button styling */
 #nav-btn {
   background-color: var(--btn-bg);
-  color: var(--btn-font-color);
+  color: var(--font-french-blue);
   border: 2px solid var(--btn-border);
   border-radius: 5px;
   padding: 10px 20px;
@@ -115,22 +115,41 @@ background-color: #DE5D85;
     padding: 10px; 
     text-decoration: none;
     color: #1e1e1e;
-    /* height: 100%;  */
-    display: flex; /* Use flexbox for alignment */
+    display: flex;
     align-items: center; 
     transition: color .5s ease, background-color .5s ease;
   }
   
   .nav > .nav-links > a:hover {
-    color: rgb(100, 70, 60); /* Lighter chocolate */
+    color: rgb(100, 70, 60);
     background-color: rgb(230, 220, 210); 
   }
   
   .nav > #nav-check {
     display: none;
   }
+
+  .phone-number {
+    display: block; 
+    text-decoration: none;
+    transition: all .5s ease;
+  }
+
+  .phone-number:hover {
+    text-decoration: underline;
+  }
   
   @media (max-width:600px) {
+    .phone-number {
+      text-decoration: none !important;
+      color: var(--font-french-blue);
+      transition: all .5s ease;
+    }
+    
+    .phone-number:hover {
+      text-decoration: underline;
+    }
+    
     .nav-name { 
       margin: 0 20px;
     }
